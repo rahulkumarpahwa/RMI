@@ -10,4 +10,9 @@ public class ImplementClass extends UnicastRemoteObject implements CreateRemoteI
     public int add(int x, int y) {
         return x + y;
     }
+
+    @Override
+    public int sub(int x, int y) {
+        return x - y;
+    }
 }
