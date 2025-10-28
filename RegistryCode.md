@@ -1,4 +1,4 @@
-We will discuss  **RMI Registry Creation** code in detail:
+We will discuss **RMI Registry Creation** code in detail:
 
 ```java
 try {
@@ -200,3 +200,15 @@ _"Try to start the RMI registry. If it's already running, don't crash — just u
 ✅ **Reusability** - Can run server multiple times  
 ✅ **Robustness** - Handles edge cases  
 ✅ **User-Friendly** - Informative messages
+
+
+
+## Notes about ports and Naming.rebind:
+
+- `LocateRegistry.createRegistry(1901);` creates a registry on port 1901.
+- `Naming.rebind("ADD", obj);` (with a plain name) tries to bind to the registry on the default port `1099`. That mismatch will cause a separate issue when binding or looking up.
+  - Option 1: create registry on `1099` (change code to
+    `createRegistry(1099)`).
+  - Option 2: bind with explicit URL that includes the port:
+    `Naming.rebind("//localhost:1901/ADD", obj);` and lookup with
+    `Naming.lookup("//localhost:1901/ADD");` on the client.
