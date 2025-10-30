@@ -13,7 +13,7 @@ public class Server {
         }
 
         ImplementClass obj = new ImplementClass();
-        Naming.rebind("ADD", obj); // bind the remote object with the name "ADD"
+        Naming.rebind("REMOTEOBJ", obj); // bind the remote object with the name "REMOTEOBJ"
         System.out.println("Server Started and bound 'ADD'!");
     }
 }
