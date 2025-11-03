@@ -11,5 +11,6 @@ public class Server {
         RemoteClass obj = new RemoteClass();
         Naming.rebind("rmi://localhost:9999/CHAT", obj);
         System.out.println("Server Started!");
+        System.out.println("Chat Started!");
     }
 }
