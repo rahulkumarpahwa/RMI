@@ -16,6 +16,7 @@ public class Client {
                 }
                 String reply = obj.Chat(line);
                 System.out.println(reply);
+                sc.close();
             }
         } catch (Exception e) {
             System.out.println("Connection failed!");

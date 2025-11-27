@@ -17,6 +17,7 @@ public class RemoteClass extends UnicastRemoteObject implements RemoteInterface 
         }
         Scanner sc = new Scanner(System.in);
         String line = sc.nextLine();
+        sc.close();
         return "Server : " + line;
     }
 }
