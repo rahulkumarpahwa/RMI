@@ -17,7 +17,7 @@ public class Client {
                     return;
                 }
                 String chat = obj.Chat_Fxn(input);
-                System.out.println(chat);
+                System.out.println("S : " + chat);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

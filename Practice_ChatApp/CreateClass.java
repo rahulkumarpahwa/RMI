@@ -8,13 +8,21 @@ public class CreateClass extends UnicastRemoteObject implements CreateInterface 
         super();
     }
 
+    // Reuse a single Scanner for System.in to avoid closing the global input
+    // stream.
+    // private static final
+    Scanner SERVER_SCANNER = new Scanner(System.in);
+
     @Override
     public String Chat_Fxn(String chat) {
         try {
             System.out.println("Client : " + chat);
-            Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine();
-            sc.close();
+            String input = SERVER_SCANNER.nextLine();
+            if (input.equals("Exit") || input.equals("exit")) {
+                System.out.println("Server Ended!");
+                SERVER_SCANNER.close();
+                return "Server Exited!";
+            }
             return input;
         } catch (Exception e) {
             System.out.println(e.getMessage());
